@@ -22,13 +22,16 @@ Auth::routes();
 
 
 Route::middleware(['auth','admin'])->group (function(){
-    Route::get('admin/dashboard', 'HomeController@index')->name('home');
+    Route::get('admin/dashboard', 'HomeController@index')->name('dashboard');
     Route::resource('admin/categories', 'CategoriesController');
     Route::resource('admin/posts', 'PostController');
     Route::resource('admin/tags', 'TagController');
 
     Route::get('admin/users','UserController@index')->name('users.index');
     Route::post('admin/users/{user}/make-admin','UserController@makeAdmin')->name('users.make-admin');
+    Route::get('admin/users/{user}/edit','UserController@edit')->name('users.edit');
+    Route::put('admin/users/{user}/edit','UserController@update')->name('users.update-profile');
+
 });
 
 

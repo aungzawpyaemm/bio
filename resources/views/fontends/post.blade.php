@@ -417,7 +417,7 @@
                                                 <div class="" >
                                                     
 
-                                                     <a href="#" class="like" style="color:#663d00;font-weight:bold;font-size:18px;">
+                                                     <a href="{{ route('fontends.post',$post->id) }}" class="like" style="color:#663d00;font-weight:bold;font-size:18px;">
                                                         {{$post->name}}
                                                      </a>
                                                    

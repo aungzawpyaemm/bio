@@ -19,6 +19,12 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ asset('fontend/css/style.css')}}">
 <link rel="stylesheet" href="{{ asset('fontend/css/bootstrap-social.css')}}">
+ <!-- Owl Stylesheets -->
+
+ <link rel="stylesheet" href="{{ asset('fontend/owlcarousel/assets/owlcarousel/assets/owl.carousel.min.css')}}">
+ <link rel="stylesheet" href="{{ asset('fontend/owlcarousel/assets/owlcarousel/assets/owl.theme.default.min.css')}}">
+
+
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i');
@@ -424,6 +430,67 @@ a.buy-btn{
     
     <script src="{{ asset('fontend/js/active.js')}}"></script>
 
+
+    
+  
+<!--Owlcarousel javascript -->
+    
+    <script src="{{ asset('fontend/owlcarousel/assets/vendors/jquery.min.js')}}"></script>
+    <script src="{{ asset('fontend/owlcarousel/assets/owlcarousel/owl.carousel.js')}}"></script>
+    <script src="{{ asset('fontend/owlcarousel/js/plugins/plugins.js')}}"></script>
+    <script src="{{ asset('fontend/owlcarousel/assets/vendors/highlight.js')}}"></script>
+    <script src="{{ asset('fontend/owlcarousel/assets/js/app.js')}}"></script>
+   
+
+    <script>
+      $(document).ready(function() {
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+         
+          loop: true,
+          margin: 10,
+          autoplay: true,
+          autoplayTimeout: 2000,
+          autoplayHoverPause: true,
+          responsiveClass: true,
+          responsive: {
+                  0: {
+                    items: 1,
+                    nav: true
+                  },
+                  600: {
+                    items: 3,
+                    nav: false
+                  },
+                  1000: {
+                    items: 5,
+                    nav: true,
+                    loop: false,
+                    margin: 20
+                  }
+              }
+
+
+       
+        });
+        $('.play').on('click', function() {
+          owl.trigger('play.owl.autoplay', [1000])
+        })
+        $('.stop').on('click', function() {
+          owl.trigger('stop.owl.autoplay')
+        })
+      })
+    </script>
+
+<script>
+  $(document).ready(function() {
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      
+    })
+  })
+</script>
 
 </body>
 

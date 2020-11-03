@@ -26,7 +26,7 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li class="active"><a href="">Home</a></li>
+                                <li class="active"><a href="/home">Home</a></li>
                                     @foreach ($categories as $category)
 
                                       <li ><a href="{{ route('fontends.cat', $category->id) }}">{{ $category->name }}</a></li>

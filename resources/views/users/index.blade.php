@@ -57,6 +57,7 @@
                                     <thead>
                                     <tr>
                                         <th style="width: 10px">#</th>
+                                        <td style="width: 20px">Profile</td>
                                         <th style="width: 30px">Name</th>
                                         <th style="width: 10px">Email</th>
                                         <th style="width: 10px">Auth</th>
@@ -68,7 +69,11 @@
                                     <tbody>
                                     @foreach($users as $user)
                                         <tr>
-                                            <td>{{$user->id}}</td>
+                                        <td>{{$user->id}}</td>
+                                        <td>
+                                            <img src="{{Gravatar::src($user->email)}}" alt="">
+                                        </td>
+                                           
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
                                             
@@ -90,7 +95,7 @@
 
                                             </td>
                                             <td>
-                                                <a class="btn btn-info" href="">
+                                            <a class="btn btn-info" href="{{ route('users.edit', $user->id) }}">
                                                     <i class="far fa-edit  text-bold"></i>
                                                     
                                                 </a>

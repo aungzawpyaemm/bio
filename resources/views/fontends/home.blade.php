@@ -1,6 +1,67 @@
 @extends('layouts.fontend')
 @section('title','Home')
 @section('content')
+<section>
+ 
+          <div class="large-12 columns">
+            <div class="owl-carousel owl-theme">   
+              
+                @foreach ($posts as $post)
+                <div class="item">
+                    <div class="">
+                        <div class="wsk-cp-product">
+                            <div class="wsk-cp-img">
+                            <img src="{{ asset("storage/{$post->profile}") }}" alt="Product" class="img-responsive rounded-circle" />
+                            </div>
+                        <div class="wsk-cp-text">
+                            <div class="category">
+                                <span>{{$post->category->name}}</span>
+                            </div>
+                        
+                                    <div class="comment_area p-0">
+        
+                                        <ol>
+                                    
+                                            <!-- Single Comment Area -->
+                                            <li class="">
+                                                <!-- Comment Content -->
+                                                <div class="comment-content d-flex">
+                                                
+                                                    <!-- Comment Meta -->
+                                                    <div class="comment-meta">
+                                                    
+                                                        <div class="" >
+                                                            
+        
+                                                            <a href="{{ route('fontends.post',$post->id) }}" class="like" style="color:#663d00;font-weight:bold;font-size:18px;">
+                                                                {{$post->name}}
+                                                            </a>
+                                                        
+                                                                
+                                                            
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    </div>
+                
+        
+                        
+                    
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                @endforeach
+              
+              
+            </div>
+          </div>
+          
+
+  
 <section class="mag-posts-area d-flex flex-wrap">
 
     <!-- >>>>>>>>>>>>>>>>>>>>
@@ -15,79 +76,34 @@
             </div>
 
             <!-- Single Blog Post -->
-            <div class="single-blog-post d-flex">
-                <div class="post-thumbnail">
-                    <img src="img/bg-img/4.jpg" alt="">
-                </div>
-                <div class="post-content">
-                    <a href="single-post.html" class="post-title">Global Travel And Vacations Luxury Travel</a>
-                    <div class="post-meta d-flex justify-content-between">
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Single Blog Post -->
+            @foreach ($items as $item)
             <div class="single-blog-post d-flex">
-                <div class="post-thumbnail">
-                    <img src="img/bg-img/5.jpg" alt="">
-                </div>
-                <div class="post-content">
-                    <a href="single-post.html" class="post-title">Cruising Destination Ideas</a>
-                    <div class="post-meta d-flex justify-content-between">
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                    </div>
-                </div>
+                
+                    <div class="post-thumbnail">
+                        <a href="l" class="">
+                        <img class="" src="{{ asset("storage/{$item->profile}")}}" class="rounded-circle" title='{{$post->name}}' alt="{{$post->name}}">
+                        </div>
+                        <div class="post-content">
+                           
+                            <div class="post-meta d-flex justify-content-between">
+                                
+                                    <p class="mt-3">{{$item->name}}</p>
+                               
+                                {{-- <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
+                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
+                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a> --}}
+                            </div>
+                        
+                        </div>
+                </a>
             </div>
+                
+            @endforeach
+            
 
-            <!-- Single Blog Post -->
-            <div class="single-blog-post d-flex">
-                <div class="post-thumbnail">
-                    <img src="img/bg-img/6.jpg" alt="">
-                </div>
-                <div class="post-content">
-                    <a href="single-post.html" class="post-title">The Luxury Of Traveling With</a>
-                    <div class="post-meta d-flex justify-content-between">
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Blog Post -->
-            <div class="single-blog-post d-flex">
-                <div class="post-thumbnail">
-                    <img src="img/bg-img/7.jpg" alt="">
-                </div>
-                <div class="post-content">
-                    <a href="single-post.html" class="post-title">Choose The Perfect Accommodations</a>
-                    <div class="post-meta d-flex justify-content-between">
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Blog Post -->
-            <div class="single-blog-post d-flex">
-                <div class="post-thumbnail">
-                    <img src="img/bg-img/8.jpg" alt="">
-                </div>
-                <div class="post-content">
-                    <a href="single-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
-                    <div class="post-meta d-flex justify-content-between">
-                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 34</a>
-                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 84</a>
-                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
-                    </div>
-                </div>
-            </div>
+         
+            
         </div>
 
         <!-- Sidebar Widget -->
@@ -193,58 +209,17 @@
 
             <div class="trending-post-slides owl-carousel">
                 <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                    <img src="img/bg-img/19.jpg" alt="">
-                    <div class="post-content">
-                        <a href="#" class="post-cata">Video</a>
-                        <a href="video-post.html" class="post-title">Big Savings On Gas While You Travel</a>
+                
+                @foreach ($items as $item)
+                    <!-- Single Trending Post -->
+                    <div class="single-trending-post">
+                        <img src="{{ asset("storage/{$item->profile}") }}" alt="">
+                        <div class="post-content">
+                            <a href="#" class="post-cata">{{$item->category->name}}</a>
+                            <a href="video-post.html" class="pos}t-title">The Health Benefits Of Sunglasses</a>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                    <img src="img/bg-img/20.jpg" alt="">
-                    <div class="post-content">
-                        <a href="#" class="post-cata">TV Show</a>
-                        <a href="video-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
-                    </div>
-                </div>
-
-                <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                    <img src="img/bg-img/21.jpg" alt="">
-                    <div class="post-content">
-                        <a href="#" class="post-cata">Sports</a>
-                        <a href="video-post.html" class="post-title">The Health Benefits Of Sunglasses</a>
-                    </div>
-                </div>
-
-                <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                    <img src="img/bg-img/19.jpg" alt="">
-                    <div class="post-content">
-                        <a href="#" class="post-cata">Video</a>
-                        <a href="video-post.html" class="post-title">Big Savings On Gas While You Travel</a>
-                    </div>
-                </div>
-
-                <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                    <img src="img/bg-img/20.jpg" alt="">
-                    <div class="post-content">
-                        <a href="#" class="post-cata">TV Show</a>
-                        <a href="video-post.html" class="post-title">A Guide To Rocky Mountain Vacations</a>
-                    </div>
-                </div>
-
-                <!-- Single Trending Post -->
-                <div class="single-trending-post">
-                    <img src="img/bg-img/21.jpg" alt="">
-                    <div class="post-content">
-                        <a href="#" class="post-cata">Sports</a>
-                        <a href="video-post.html" class="post-title">The Health Benefits Of Sunglasses</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
 
@@ -774,126 +749,7 @@
     <!-- >>>>>>>>>>>>>>>>>>>>
      Post Right Sidebar Area
     <<<<<<<<<<<<<<<<<<<<< -->
-    <div class="post-sidebar-area right-sidebar mt-30 mb-30 box-shadow">
-        <!-- Sidebar Widget -->
-        <div class="single-sidebar-widget p-30">
-            <!-- Social Followers Info -->
-            <div class="social-followers-info">
-                <!-- Facebook -->
-                <a href="#" class="facebook-fans"><i class="fa fa-facebook"></i> 4,360 <span>Fans</span></a>
-                <!-- Twitter -->
-                <a href="#" class="twitter-followers"><i class="fa fa-twitter"></i> 3,280 <span>Followers</span></a>
-                <!-- YouTube -->
-                <a href="#" class="youtube-subscribers"><i class="fa fa-youtube"></i> 1250 <span>Subscribers</span></a>
-                <!-- Google -->
-                <a href="#" class="google-followers"><i class="fa fa-google-plus"></i> 4,230 <span>Followers</span></a>
-            </div>
-        </div>
-
-        <!-- Sidebar Widget -->
-        <div class="single-sidebar-widget p-30">
-            <!-- Section Title -->
-            <div class="section-heading">
-                <h5>Categories</h5>
-            </div>
-
-            <!-- Catagory Widget -->
-            <ul class="catagory-widgets">
-                 @foreach ($categories as $category)
-
-            <li><a href="{{ route('fontends.cat', $category->id) }}"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{$category->name}}</span> <span>{{$category->posts->count()}}</span></a></li>
-
-                  @endforeach 
-               
-            </ul>
-        </div>
-
-        <!-- Sidebar Widget -->
-        <div class="single-sidebar-widget">
-            <a href="#" class="add-img"><img src="img/bg-img/add2.png" alt=""></a>
-        </div>
-
-        <!-- Sidebar Widget -->
-        <div class="single-sidebar-widget p-30">
-            <!-- Section Title -->
-            <div class="section-heading">
-                <h5>Hot Channels</h5>
-            </div>
-
-            <!-- Single YouTube Channel -->
-            <div class="single-youtube-channel d-flex">
-                <div class="youtube-channel-thumbnail">
-                    <img src="img/bg-img/14.jpg" alt="">
-                </div>
-                <div class="youtube-channel-content">
-                    <a href="single-post.html" class="channel-title">TV Show</a>
-                    <a href="#" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
-                </div>
-            </div>
-
-            <!-- Single YouTube Channel -->
-            <div class="single-youtube-channel d-flex">
-                <div class="youtube-channel-thumbnail">
-                    <img src="img/bg-img/15.jpg" alt="">
-                </div>
-                <div class="youtube-channel-content">
-                    <a href="single-post.html" class="channel-title">Game Channel</a>
-                    <a href="#" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
-                </div>
-            </div>
-
-            <!-- Single YouTube Channel -->
-            <div class="single-youtube-channel d-flex">
-                <div class="youtube-channel-thumbnail">
-                    <img src="img/bg-img/16.jpg" alt="">
-                </div>
-                <div class="youtube-channel-content">
-                    <a href="single-post.html" class="channel-title">Sport Channel</a>
-                    <a href="#" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
-                </div>
-            </div>
-
-            <!-- Single YouTube Channel -->
-            <div class="single-youtube-channel d-flex">
-                <div class="youtube-channel-thumbnail">
-                    <img src="img/bg-img/17.jpg" alt="">
-                </div>
-                <div class="youtube-channel-content">
-                    <a href="single-post.html" class="channel-title">Travel Channel</a>
-                    <a href="#" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
-                </div>
-            </div>
-
-            <!-- Single YouTube Channel -->
-            <div class="single-youtube-channel d-flex">
-                <div class="youtube-channel-thumbnail">
-                    <img src="img/bg-img/18.jpg" alt="">
-                </div>
-                <div class="youtube-channel-content">
-                    <a href="single-post.html" class="channel-title">LifeStyle Channel</a>
-                    <a href="#" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Sidebar Widget -->
-        <div class="single-sidebar-widget p-30">
-            <!-- Section Title -->
-            <div class="section-heading">
-                <h5>Newsletter</h5>
-            </div>
-
-            <div class="newsletter-form">
-                <p>Subscribe our newsletter gor get notification about new updates, information discount, etc.</p>
-                <form action="#" method="get">
-                    <input type="search" name="widget-search" placeholder="Enter your email">
-                    <button type="submit" class="btn mag-btn w-100">Subscribe</button>
-                </form>
-            </div>
-
-        </div>
-    </div>
+    
 </section>
 
 

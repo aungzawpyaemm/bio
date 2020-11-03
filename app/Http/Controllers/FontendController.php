@@ -11,8 +11,16 @@ use App\Tag;
 class FontendController extends Controller
 {
     public function home(){
+        $rd = Post::orderBy('id','desc');
+       
+      
+        return view('fontends.home')
+        ->with('categories', Category::all())
+        ->with('posts',Post::all())
+        ->with('items',$rd->get())
+        // ->with('list',$list->get())
         
-        return view('fontends.home')->with('categories', Category::all());
+        ;
     }
 
     // public function category(Category $category){
