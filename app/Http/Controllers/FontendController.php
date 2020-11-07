@@ -4,33 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Http\Request;
 use App\User;
 use App\Post;
 use App\Tag;
 class FontendController extends Controller
 {
-    public function home(){
-        $rd = Post::orderBy('id','desc');
-       
-      
+    public function home(Post $post){
+        // $rd = Post::orderBy('id','desc');
+        $jobs = Post::orderBy('created_at', 'DESC')->simplePaginate(3);
+
         return view('fontends.home')
         ->with('categories', Category::all())
         ->with('posts',Post::all())
-        ->with('items',$rd->get())
-        // ->with('list',$list->get())
+        ->with('jobs',$jobs)
         
         ;
+
+        
     }
-
-    // public function category(Category $category){
-    //     return view('fontends.category')
-    //     ->with('category', $category)
-    //     ->with('posts', $category->posts()->simplePaginate(2))
-    //     ->with('categories', Category::all())
-    //    ;
-
-    // }
 
     public function post(Post $post)
     {

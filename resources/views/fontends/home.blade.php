@@ -72,12 +72,28 @@
                             <div class="col-12">
                                 <!-- Section Title -->
                                 <div class="section-heading " >
-                                    <h5>You May Also Like</h5>
+                                    <div class="d-flex justify-content-between">
+                                      <h5 class="mt-2">Popular People</h5>
+                                        <nav aria-label="Page navigation example">
+                                        
+                                            <ul class="pagination justify-content-end">
+                                              
+                                              <li class="page-item">
+                                                
+                                                    {{ $jobs->links() }}
+                                                  
+                                                </li>
+                                              
+                                            </ul>
+                                          </nav>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
+                       
                         <div class="row">
-                            @foreach ($items as $post)
+                            @foreach ($jobs as $post)
                             <div class="col-md-4  ">
                                 <div class="wsk-cp-product">
                                     <div class="wsk-cp-img">
@@ -91,10 +107,14 @@
                                     </a>
                                
                                 </div>
+                                
                               </div>
                             </div>
+                           
                             @endforeach
                         </div>
+
+                       
                     
                     
                 </div>
@@ -106,7 +126,40 @@
 
 <!-- ##### Mag Posts Area End ##### -->
 
+<script type="text/javascript">
+	var page = 1;
+	$(window).scroll(function() {
+	    if($(window).scrollTop() + $(window).height() >= $(document).height()) {
+	        page++;
+	        loadMoreData(page);
+	    }
+	});
 
+	function loadMoreData(page){
+	  $.ajax(
+	        {
+	            url: '?page=' + page,
+	            type: "get",
+	            beforeSend: function()
+	            {
+	                $('.ajax-load').show();
+	            }
+	        })
+	        .done(function(data)
+	        {
+	            if(data.html == " "){
+	                $('.ajax-load').html("No more records found");
+	                return;
+	            }
+	            $('.ajax-load').hide();
+	            $("#post-data").append(data.html);
+	        })
+	        .fail(function(jqXHR, ajaxOptions, thrownError)
+	        {
+	              alert('server not responding...');
+	        });
+	}
+</script>
 @endsection
 
 
